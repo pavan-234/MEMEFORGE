@@ -8,5 +8,5 @@ const Navbar = () => {
     </nav>
   );
 };
-
+// navbar
 export default Navbar;
