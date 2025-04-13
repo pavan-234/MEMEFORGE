@@ -1,11 +1,18 @@
 const MemeCard = ({ meme }) => {
-    return (
-      <div className="border rounded-lg shadow-md p-4">
-        <img src={meme.imageUrl} alt={meme.title} className="w-full h-auto rounded" />
-        <h2 className="text-lg font-semibold mt-2">{meme.title}</h2>
-      </div>
-    );
-  };
-  
-  export default MemeCard;
-  
+  if (!meme) {
+    return <div className="text-red-500">Error: Meme data is missing!</div>;
+  }
+
+  return (
+    <div className="border p-4 rounded-lg shadow-lg">
+      <img
+        src={meme.imageUrl || "https://via.placeholder.com/300"}
+        alt={meme.title || "No Title"}
+        className="w-full h-48 object-cover rounded-md"
+      />
+      <p className="mt-2 text-lg font-semibold">{meme.title || "Untitled Meme"}</p>
+    </div>
+  );
+};
+
+export default MemeCard;
